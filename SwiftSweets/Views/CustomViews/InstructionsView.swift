@@ -33,12 +33,16 @@ struct InstructionsView: View {
                                         .multilineTextAlignment(.leading)
                                 }
                             }
-                        }}
+                        }} else {
+                            Text("No instructions")
+                                .font(.custom("PlayfairDisplay-Regular", size: 16))
+                        }
                 }
                 
                 if viewModel.selection == TabSelection.ingredients {
                     if viewModel.ingredientMeasurements.isEmpty {
                         Text("No ingredients")
+                            .font(.custom("PlayfairDisplay-Regular", size: 16))
                     } else {
                         ForEach(viewModel.ingredientMeasurements, id: \.ingredient) { pair in
                             HStack {
